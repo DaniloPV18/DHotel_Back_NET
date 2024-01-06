@@ -14,6 +14,14 @@ namespace DHotel_Back.DBContext.Config
                 .WithMany(a => a.ServicioOfrecido)
                 .HasForeignKey(so => so.AdministradorId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .Property(so => so.AdministradorId)
+                .IsRequired(false);
+
+            builder
+                .Property(so => so.EstadoId)
+                .IsRequired(false);
         }
     }
 }
