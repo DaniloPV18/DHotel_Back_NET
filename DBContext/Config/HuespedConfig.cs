@@ -8,7 +8,9 @@ namespace DHotel_Back.DBContext.Config
     {
         public void Configure(EntityTypeBuilder<Huesped> builder)
         {
-            
+            builder
+                .Property(h => h.AdministradorId)
+                .IsRequired(false);
         }
     }
 }
