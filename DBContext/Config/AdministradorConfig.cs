@@ -10,6 +10,11 @@ namespace DHotel_Back.DBContext.Config
         public void Configure(EntityTypeBuilder<Administrador> builder)
         {
             builder.Property(a => a.FechaNacimiento).HasColumnType("date");
+
+            builder
+               .Property(so => so.Pwd)
+               .IsRequired(false);
+
         }
     }
 }

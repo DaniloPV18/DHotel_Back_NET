@@ -1,16 +1,15 @@
-﻿namespace DHotel_Back.DTOs
+﻿using System.Text.Json.Serialization;
+
+namespace DHotel_Back.DTOs
 {
     public class ServicioOfrecidoCreacionDTO
     {
-        public ServicioOfrecidoCreacionDTO()
-        {
-            FechaRegistro = DateTime.Now;
-            EstadoId = 1;
-        }
         public string Codigo { get; set; } = null!;
         public string Nombre { get; set; } = null!;
         public int? AdministradorId { get; set; }
-        public DateTime? FechaRegistro { get; set; }
-        public int? EstadoId { get; set; }
+        [JsonIgnore]
+        public DateTime? FechaRegistro { get; set; } = DateTime.Now;
+        [JsonIgnore]
+        public int? EstadoId { get; set; } = 1;
     }
 }
