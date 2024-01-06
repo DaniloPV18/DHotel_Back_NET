@@ -4,6 +4,7 @@ using DHotel_Back.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DHotelBack.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240105015249_AdmOpcional_ServiciosOfrecidos")]
+    partial class AdmOpcionalServiciosOfrecidos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,52 +61,58 @@ namespace DHotelBack.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AdministradorId")
+                    b.Property<int>("AdministradorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Apellidos")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Cedula")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Celular")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int?>("EstadoId")
+                    b.Property<int>("EstadoId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("FechaModificacion")
+                    b.Property<DateTime>("FechaModificacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("FechaNacimiento")
+                    b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("date");
 
-                    b.Property<DateTime?>("FechaRegistro")
+                    b.Property<DateTime>("FechaRegistro")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GeneroId")
+                    b.Property<int>("GeneroId")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombres")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Pwd")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int?>("RolId")
+                    b.Property<int>("RolId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("UltimaActividad")
+                    b.Property<DateTime>("UltimaActividad")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -290,19 +299,21 @@ namespace DHotelBack.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Codigo")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int?>("EstadoId")
+                    b.Property<DateTime>("FechaModificacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaRegistro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdEstado")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("FechaModificacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("FechaRegistro")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
