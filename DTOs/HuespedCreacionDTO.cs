@@ -5,6 +5,10 @@ namespace DHotel_Back.DTOs
 {
     public class HuespedCreacionDTO
     {
+        public HuespedCreacionDTO()
+        {
+            FechaRegistro = DateTime.Now;
+        }
         public string Cedula { get; set; } = null!;
         public string Nombres { get; set; } = null!;
         public string Apellidos { get; set; } = null!;
@@ -13,6 +17,6 @@ namespace DHotel_Back.DTOs
         public int? GeneroId { get; set; }
         public int? AdministradorId { get; set; }
         [JsonIgnore]
-        public DateTime? FechaRegistro { get; set; } = DateTime.Now;
+        public DateTime? FechaRegistro { get; set; }
     }
 }

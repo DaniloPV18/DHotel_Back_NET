@@ -9,6 +9,7 @@ namespace DHotel_Back.DTOs
         {
             FechaRegistro = DateTime.Now;
             EstadoId = 1;
+            RolId = 1;
         }
         public string? Cedula { get; set; } = null!;
         public string? Nombres { get; set; } = null!;
@@ -19,11 +20,11 @@ namespace DHotel_Back.DTOs
         public string? Pwd { get; set; } = null!;
         public DateTime? FechaNacimiento { get; set; }
         [JsonIgnore]
-        public int? RolId { get; set; } = 1;
+        public int? RolId { get; set; }
         public int? AdministradorId { get; set; }
         [JsonIgnore]
-        public DateTime? FechaRegistro { get; set; } = DateTime.Now;
+        public DateTime? FechaRegistro { get; set; }
         [JsonIgnore]
-        public int? EstadoId { get; set; } = 1;
+        public int? EstadoId { get; set; }
     }
 }

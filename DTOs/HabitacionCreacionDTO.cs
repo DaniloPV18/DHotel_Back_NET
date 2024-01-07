@@ -9,6 +9,7 @@ namespace DHotel_Back.DTOs
         {
             FechaRegistro = DateTime.Now;
             EstadoId = 1;
+            HabitacionServicioOfrecido = new List<int>();
         }
         public int? Numero { get; set; }
         public int? AdministradorId { get; set; }
@@ -19,6 +20,6 @@ namespace DHotel_Back.DTOs
         public int? EstadoId { get; set; }
         public decimal? Precio { get; set; }
         public string? Foto { get; set; }
-        public List<int>? HabitacionServicioOfrecido { get; set; } = new List<int>();
+        public List<int>? HabitacionServicioOfrecido { get; set; }
     }
 }
