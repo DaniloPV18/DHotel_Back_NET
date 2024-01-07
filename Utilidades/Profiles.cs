@@ -12,6 +12,12 @@ namespace DHotel_Back.Utilidades
 
             CreateMap<HuespedCreacionDTO, Huesped>();
 
+            CreateMap<HabitacionCreacionDTO, Habitacion>()
+                .ForMember( ent => ent.HabitacionServicioOfrecido, 
+                            opt => opt.Ignore());
+
+            CreateMap<HabitacionServicioOfrecidoCreacionDTO, HabitacionServicioOfrecido>();
+
             CreateMap<ServicioOfrecidoCreacionDTO, ServicioOfrecido>();
         }
     }
