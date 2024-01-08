@@ -20,6 +20,11 @@ namespace DHotel_Back.Controllers
             this.context = _context;
             this.mapper = _mapper;
         }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Habitacion>>> GetAll()
+        {
+            return await this.context.Habitaciones.ToListAsync();
+        }
         [HttpPost]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> Post([FromForm] HabitacionCreacionDTO entidad)

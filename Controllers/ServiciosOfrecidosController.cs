@@ -3,6 +3,7 @@ using DHotel_Back.DBContext;
 using DHotel_Back.DTOs;
 using DHotel_Back.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DHotel_Back.Controllers
 {
@@ -16,6 +17,11 @@ namespace DHotel_Back.Controllers
         {
             this.context = _context;
             this.mapper = _mapper;
+        }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<ServicioOfrecido>>> GetAll()
+        {
+            return await this.context.ServiciosOfrecidos.ToListAsync();
         }
         [HttpPost]
         public async Task<ActionResult> Post(ServicioOfrecidoCreacionDTO entidad)
