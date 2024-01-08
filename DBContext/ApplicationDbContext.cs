@@ -1,4 +1,5 @@
 ﻿using DHotel_Back.Models;
+using DHotel_Back.Models.Seeding;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -13,6 +14,7 @@ namespace DHotel_Back.DBContext
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            SeedingInicial.Seed(modelBuilder);
         }
         protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
         {
