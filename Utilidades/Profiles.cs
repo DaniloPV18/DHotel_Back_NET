@@ -10,6 +10,8 @@ namespace DHotel_Back.Utilidades
         {
             CreateMap<AdministradorCreacionDTO, Administrador>();
 
+            CreateMap<AdministradorModificacionDTO, Administrador>();
+
             CreateMap<HuespedCreacionDTO, Huesped>();
 
             CreateMap<HabitacionCreacionDTO, Habitacion>()
