@@ -42,17 +42,5 @@ namespace DHotel_Back.Controllers
             await this.context.SaveChangesAsync();
             return Ok();
         }
-        [HttpPut("updateStatus")]
-        public async Task<ActionResult<Administrador>> PutStatus(AdministradorModificacionDTO entidad)
-        {
-            var existingEntity = await this.context.Administradores.FirstOrDefaultAsync(a => a.Id == entidad.Id);
-            if (existingEntity == null)
-            {
-                return NotFound();
-            }
-            this.mapper.Map(entidad, existingEntity);
-            await this.context.SaveChangesAsync();
-            return Ok();
-        }
     }
 }
