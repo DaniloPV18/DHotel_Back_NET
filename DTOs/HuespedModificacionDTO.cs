@@ -2,9 +2,9 @@
 
 namespace DHotel_Back.DTOs
 {
-    public class AdministradorModificacionDTO
+    public class HuespedModificacionDTO
     {
-        public AdministradorModificacionDTO()
+        public HuespedModificacionDTO()
         {
             FechaModificacion = DateTime.Now;
         }
@@ -15,11 +15,8 @@ namespace DHotel_Back.DTOs
         public string? Celular { get; set; } = null!;
         public string? Email { get; set; } = null!;
         public int? GeneroId { get; set; }
-        public DateTime? FechaNacimiento { get; set; }
-        public int? RolId { get; set; }
         public int? AdministradorId { get; set; }
         [JsonIgnore]
         public DateTime? FechaModificacion { get; set; }
-        public int? EstadoId { get; set; }
     }
 }

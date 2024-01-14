@@ -1,7 +1,5 @@
-﻿using DHotel_Back.Models;
-using DHotel_Back.Validaciones;
+﻿using DHotel_Back.Validaciones;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Text.Json.Serialization;
 
 namespace DHotel_Back.DTOs
 {

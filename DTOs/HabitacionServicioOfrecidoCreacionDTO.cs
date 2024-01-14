@@ -1,5 +1,4 @@
-﻿using DHotel_Back.Models;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace DHotel_Back.DTOs
 {

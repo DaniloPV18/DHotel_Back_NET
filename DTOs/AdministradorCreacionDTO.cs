@@ -1,5 +1,4 @@
-﻿using DHotel_Back.Models;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace DHotel_Back.DTOs
 {
@@ -9,7 +8,6 @@ namespace DHotel_Back.DTOs
         {
             FechaRegistro = DateTime.Now;
             EstadoId = 1;
-            RolId = 2;
         }
         public string? Cedula { get; set; } = null!;
         public string? Nombres { get; set; } = null!;
@@ -19,7 +17,6 @@ namespace DHotel_Back.DTOs
         public int? GeneroId { get; set; }
         public string? Pwd { get; set; } = null!;
         public DateTime? FechaNacimiento { get; set; }
-        [JsonIgnore]
         public int? RolId { get; set; }
         public int? AdministradorId { get; set; }
         [JsonIgnore]
