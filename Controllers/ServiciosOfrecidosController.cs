@@ -23,6 +23,11 @@ namespace DHotel_Back.Controllers
         {
             return await this.context.ServiciosOfrecidos.ToListAsync();
         }
+        [HttpGet("activates")]
+        public async Task<ActionResult<IEnumerable<ServicioOfrecido>>> GetAllActivates()
+        {
+            return await this.context.ServiciosOfrecidos.Where(so => so.EstadoId == 1).ToListAsync();
+        }
         [HttpPost]
         public async Task<ActionResult> Post(ServicioOfrecidoCreacionDTO entidad)
         {
@@ -34,6 +39,18 @@ namespace DHotel_Back.Controllers
         public async Task<ActionResult> Post(ServicioOfrecidoCreacionDTO[] entidades)
         {
             this.context.AddRange(this.mapper.Map<ServicioOfrecido[]>(entidades));
+            await this.context.SaveChangesAsync();
+            return Ok();
+        }
+        [HttpPut("update")]
+        public async Task<ActionResult> PutEntity(ServicioOfrecidoModificacionDTO entidad)
+        {
+            var existingEntity = await this.context.ServiciosOfrecidos.FirstOrDefaultAsync(a => a.Id == entidad.Id);
+            if (existingEntity == null)
+            {
+                return NotFound();
+            }
+            this.mapper.Map(entidad, existingEntity);
             await this.context.SaveChangesAsync();
             return Ok();
         }

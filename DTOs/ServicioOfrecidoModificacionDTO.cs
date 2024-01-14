@@ -2,19 +2,18 @@
 
 namespace DHotel_Back.DTOs
 {
-    public class ServicioOfrecidoCreacionDTO
+    public class ServicioOfrecidoModificacionDTO
     {
-        public ServicioOfrecidoCreacionDTO()
+        public ServicioOfrecidoModificacionDTO()
         {
-            FechaRegistro = DateTime.Now;
-            EstadoId = 1;
+            FechaModificacion = DateTime.Now;
         }
+        public int Id { get; set; }
         public string? Codigo { get; set; } = null!;
         public string? Nombre { get; set; } = null!;
         public int? AdministradorId { get; set; }
         [JsonIgnore]
-        public DateTime? FechaRegistro { get; set; }
-        [JsonIgnore]
+        public DateTime? FechaModificacion { get; set; }
         public int? EstadoId { get; set; }
     }
 }
