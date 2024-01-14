@@ -1,4 +1,9 @@
 using DHotel_Back.DBContext;
+using DHotel_Back.Interfaces.IRepository;
+using DHotel_Back.Interfaces.IServices;
+using DHotel_Back.Interfaces.Repository;
+using DHotel_Back.Interfaces.Services;
+using DHotel_Back.Services;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +43,19 @@ builder.Services.Configure<KestrelServerOptions>(options =>
 });
 
 builder.Logging.AddConsole();
+
+// Servicios Entidades
+builder.Services.AddScoped<ServicioOfrecidoService>();
+builder.Services.AddScoped<HuespedService>();
+builder.Services.AddScoped<AdministradorService>();
+builder.Services.AddScoped<HabitacionService>();
+//Añadir servicios - Interfaces
+builder.Services.AddScoped<IServicioOfrecidoRepository, ServicioOfrecidoRepository>();
+builder.Services.AddScoped<IAdministradorRepository, AdministradorRepository>();
+builder.Services.AddScoped<IHuespedRepository, HuespedRepository>();
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IFileStorageService, FileStorageService>();
+
 
 var app = builder.Build();
 

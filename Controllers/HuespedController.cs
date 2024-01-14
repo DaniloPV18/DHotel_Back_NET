@@ -2,6 +2,7 @@
 using DHotel_Back.DBContext;
 using DHotel_Back.DTOs;
 using DHotel_Back.Models;
+using DHotel_Back.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,51 +12,47 @@ namespace DHotel_Back.Controllers
     [Route("api/v1/huesped")]
     public class HuespedController : ControllerBase
     {
-        private readonly ApplicationDbContext context;
-        private readonly IMapper mapper;
-        public HuespedController(ApplicationDbContext _context, IMapper _mapper)
+        private readonly HuespedService _huespedService;
+        public HuespedController(ApplicationDbContext context, HuespedService huespedService)
         {
-            this.context = _context;
-            this.mapper = _mapper;
+            this._huespedService = huespedService;
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Huesped>>> GetAll()
         {
-            return await this.context.Huespedes
-                .ToArrayAsync();
+            var huespedes = await _huespedService.GetAll();
+            return Ok(huespedes);
         }
         [HttpGet("BuscarPorNombresApellidos")]
         public async Task<ActionResult<IEnumerable<Huesped>>> GetNombresApellidos(string nombresApellidos)
         {
-            return await this.context.Huespedes
-                .Where(h => h.Nombres.Contains(nombresApellidos) || h.Apellidos.Contains(nombresApellidos))
-                .ToArrayAsync();
+            var huespedes = await _huespedService.BuscarHuespedesPorNombreApellido(nombresApellidos);
+            return Ok(huespedes);
         }
         [HttpGet("{id:int}")]
         public async Task<ActionResult<Huesped>> GetId(int id)
         {
-            var huesped = await this.context.Huespedes.FirstOrDefaultAsync(h => h.Id == id);
+            var huesped = await _huespedService.GetById(id);
             if (huesped is null)
+            {
                 return NotFound();
+            }
             return huesped;
         }
         [HttpPost]
         public async Task<ActionResult> Post(HuespedCreacionDTO entidad)
         {
-            this.context.Add(this.mapper.Map<Huesped>(entidad));
-            await this.context.SaveChangesAsync();
+            await _huespedService.Add(entidad);
             return Ok();
         }
         [HttpPut("update")]
         public async Task<ActionResult> PutEntity(HuespedModificacionDTO entidad)
         {
-            var existingEntity = await this.context.Huespedes.FirstOrDefaultAsync(a => a.Id == entidad.Id);
-            if (existingEntity == null)
+            var result = await _huespedService.Update(entidad);
+            if (!result)
             {
                 return NotFound();
             }
-            this.mapper.Map(entidad, existingEntity);
-            await this.context.SaveChangesAsync();
             return Ok();
         }
     }
