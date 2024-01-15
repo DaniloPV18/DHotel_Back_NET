@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using DHotel_Back.DBContext;
 using DHotel_Back.DTOs;
 using DHotel_Back.Interfaces.IRepository;
 using DHotel_Back.Interfaces.IServices;
@@ -9,20 +8,23 @@ namespace DHotel_Back.Services
 {
     public class HabitacionService
     {
-        private readonly IGenericRepository<Habitacion> _repository;
+        private readonly IHabitacionRepository _habitacionRepository;
+        private readonly IServicioOfrecidoRepository _servicioOfrecidoRepository;
         private readonly IMapper _mapper;
         private readonly IFileStorageService _fileStorageService;
-        private readonly ApplicationDbContext _context;  // Usado para operaciones adicionales
 
-        public HabitacionService(IGenericRepository<Habitacion> repository, IMapper mapper, IFileStorageService fileStorageService, ApplicationDbContext context)
+        public HabitacionService(IHabitacionRepository habitacionRepository, IMapper mapper, IFileStorageService fileStorageService, IServicioOfrecidoRepository servicioOfrecidoRepository)
         {
-            _repository = repository;
+            _habitacionRepository = habitacionRepository;
+            _servicioOfrecidoRepository = servicioOfrecidoRepository;
             _mapper = mapper;
             _fileStorageService = fileStorageService;
-            _context = context;
         }
-
-        public async Task CrearHabitacionAsync(HabitacionCreacionDTO habitacionDto)
+        public async Task<IEnumerable<Habitacion>> GetAll()
+        {
+            return await this._habitacionRepository.GetAllAsync();
+        }
+        public async Task Add(HabitacionCreacionDTO habitacionDto)
         {
             var habitacion = _mapper.Map<Habitacion>(habitacionDto);
 
@@ -30,10 +32,9 @@ namespace DHotel_Back.Services
             {
                 habitacion.Foto = await _fileStorageService.GuardarArchivo(habitacionDto.Foto, "ImagesGlobal");
             }
-
             foreach (var servicioId in habitacionDto.HabitacionServicioOfrecido)
             {
-                var servicioExistente = await _context.ServiciosOfrecidos.FindAsync(servicioId);
+                var servicioExistente = await _servicioOfrecidoRepository.GetByIdAsync(servicioId);
                 if (servicioExistente != null)
                 {
                     habitacion.HabitacionServicioOfrecido.Add(new HabitacionServicioOfrecido
@@ -43,8 +44,11 @@ namespace DHotel_Back.Services
                     });
                 }
             }
-
-            await _repository.AddAsync(habitacion);
+            await _habitacionRepository.AddAsync(habitacion);
+        }
+        public async Task Update(HabitacionModificacionDTO entidad)
+        {
+            
         }
     }
 

@@ -49,10 +49,12 @@ builder.Services.AddScoped<ServicioOfrecidoService>();
 builder.Services.AddScoped<HuespedService>();
 builder.Services.AddScoped<AdministradorService>();
 builder.Services.AddScoped<HabitacionService>();
-//Añadir servicios - Interfaces
+//Añadir Servicios - Interfaces
+builder.Services.AddScoped<IHabitacionRepository, HabitacionRepository>();
 builder.Services.AddScoped<IServicioOfrecidoRepository, ServicioOfrecidoRepository>();
 builder.Services.AddScoped<IAdministradorRepository, AdministradorRepository>();
 builder.Services.AddScoped<IHuespedRepository, HuespedRepository>();
+
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<IFileStorageService, FileStorageService>();
 
