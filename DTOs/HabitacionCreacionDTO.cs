@@ -1,4 +1,4 @@
-﻿using DHotel_Back.Validaciones;
+﻿using DHotel_Back.Utilidades.Validations;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace DHotel_Back.DTOs
