@@ -1,4 +1,4 @@
-﻿namespace DHotel_Back.Validaciones
+﻿namespace DHotel_Back.Utilidades.Validations
 {
     public enum GrupoTipoArchivo
     {

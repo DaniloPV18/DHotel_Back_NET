@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
-namespace DHotel_Back.Validaciones
+namespace DHotel_Back.Utilidades.Validations
 {
-    public class PesoArchivoValidacion: ValidationAttribute
+    public class PesoArchivoValidacion : ValidationAttribute
     {
         private readonly int pesoMaximoEnMegaBytes;
 
