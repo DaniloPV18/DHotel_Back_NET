@@ -7,6 +7,7 @@ using DHotel_Back.Services;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +70,16 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.UseRouting();
+
+app.UseStaticFiles();
+
+// Middleware para servir archivos desde ImagesGlobal
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(app.Environment.ContentRootPath, "ImagesGlobal")),
+    RequestPath = "/ImagesGlobal"
+});
 
 app.UseCors("MyCorsPolicy");
 
