@@ -1,27 +1,22 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DHotel_Back.DTOs
+namespace DHotel_Back.DTOs.HuespedDTO
 {
-    public class AdministradorCreacionDTO
+    public class HuespedModificacionDTO
     {
-        public AdministradorCreacionDTO()
+        public HuespedModificacionDTO()
         {
-            FechaRegistro = DateTime.Now;
-            EstadoId = 1;
+            FechaModificacion = DateTime.Now;
         }
+        public int Id { get; set; }
         public string? Cedula { get; set; } = null!;
         public string? Nombres { get; set; } = null!;
         public string? Apellidos { get; set; } = null!;
         public string? Celular { get; set; } = null!;
         public string? Email { get; set; } = null!;
         public int? GeneroId { get; set; }
-        public string? Pwd { get; set; } = null!;
-        public DateTime? FechaNacimiento { get; set; }
-        public int? RolId { get; set; }
         public int? AdministradorId { get; set; }
         [JsonIgnore]
-        public DateTime? FechaRegistro { get; set; }
-        [JsonIgnore]
-        public int? EstadoId { get; set; }
+        public DateTime? FechaModificacion { get; set; }
     }
 }

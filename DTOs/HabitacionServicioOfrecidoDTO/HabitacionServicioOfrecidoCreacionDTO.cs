@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace DHotel_Back.DTOs
+namespace DHotel_Back.DTOs.HabitacionServicioOfrecidoCreacionDTO
 {
     public class HabitacionServicioOfrecidoCreacionDTO
     {
