@@ -1,10 +1,8 @@
-﻿using AutoMapper;
-using DHotel_Back.DBContext;
-using DHotel_Back.DTOs;
+﻿using DHotel_Back.DBContext;
+using DHotel_Back.DTOs.HuespedDTO;
 using DHotel_Back.Models;
 using DHotel_Back.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DHotel_Back.Controllers
 {

@@ -1,11 +1,6 @@
-﻿using AutoMapper;
-using DHotel_Back.DBContext;
-using DHotel_Back.DTOs;
-using DHotel_Back.Models;
+﻿using DHotel_Back.DTOs.HabitacionDTO;
 using DHotel_Back.Services;
-using DHotel_Back.Utilidades;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace DHotel_Back.Controllers
 {
@@ -20,7 +15,7 @@ namespace DHotel_Back.Controllers
             this._habitacionService = _habitacionService;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Habitacion>>> GetAll()
+        public async Task<ActionResult<IEnumerable<HabitacionConsultaDTO>>> GetAll()
         {
             var habitaciones = await _habitacionService.GetAll();
             return Ok(habitaciones);

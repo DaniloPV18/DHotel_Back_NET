@@ -1,4 +1,4 @@
-﻿using DHotel_Back.DTOs;
+﻿using DHotel_Back.DTOs.AdministradorDTO;
 using DHotel_Back.Models;
 using DHotel_Back.Services;
 using Microsoft.AspNetCore.Mvc;
