@@ -12,8 +12,16 @@ namespace DHotel_Back.Interfaces.Repository
         {
             this._context = context;
         }
-
-        public async Task<IEnumerable<Habitacion>> ConsultarRelaciones()
+        public new async Task<Habitacion> GetByIdAsync(int id)
+        {
+            // Tu lógica personalizada aquí
+            return await _context.Habitaciones
+                                 .Include(a => a.Administrador)
+                                 .Include(h => h.HabitacionServicioOfrecido)
+                                    .ThenInclude(hso => hso.ServicioOfrecido)
+                                 .FirstOrDefaultAsync(a => a.Id == id);
+        }
+        public new async Task<IEnumerable<Habitacion>> GetAllAsync()
         {
             return await _context.Habitaciones
                             .Include(h => h.Administrador)

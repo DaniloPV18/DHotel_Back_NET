@@ -51,6 +51,7 @@ builder.Services.AddScoped<HuespedService>();
 builder.Services.AddScoped<AdministradorService>();
 builder.Services.AddScoped<HabitacionService>();
 //Añadir Servicios - Interfaces
+builder.Services.AddScoped<IHabitacionServicioOfrecidoRepository, HabitacionServicioOfrecidoRepository>();
 builder.Services.AddScoped<IHabitacionRepository, HabitacionRepository>();
 builder.Services.AddScoped<IServicioOfrecidoRepository, ServicioOfrecidoRepository>();
 builder.Services.AddScoped<IAdministradorRepository, AdministradorRepository>();

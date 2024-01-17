@@ -4,6 +4,7 @@ namespace DHotel_Back.Interfaces.IRepository
 {
     public interface IHabitacionRepository : IGenericRepository<Habitacion>
     {
-        Task<IEnumerable<Habitacion>> ConsultarRelaciones();
+        new Task<Habitacion> GetByIdAsync(int id);
+        new Task<IEnumerable<Habitacion>> GetAllAsync();
     }
 }

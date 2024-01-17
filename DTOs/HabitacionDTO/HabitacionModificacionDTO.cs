@@ -16,7 +16,6 @@ namespace DHotel_Back.DTOs.HabitacionDTO
         public int? TipoHabitacionId { get; set; }
         [BindNever]
         public DateTime FechaModificacion { get; set; }
-        [BindNever]
         public int EstadoId { get; set; }
         public decimal? Precio { get; set; }
         [PesoArchivoValidacion(PesoMaximoEnMegaBytes: 100)]

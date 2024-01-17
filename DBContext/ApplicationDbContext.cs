@@ -26,5 +26,6 @@ namespace DHotel_Back.DBContext
         public DbSet<ServicioOfrecido> ServiciosOfrecidos { get; set; }
         public DbSet<Pago> Pagos { get; set; }
         public DbSet<AbonoReserva> AbonosReservas { get; set; }
+        public DbSet<HabitacionServicioOfrecido> HabitacionServicioOfrecido { get; set; }
     }
 }

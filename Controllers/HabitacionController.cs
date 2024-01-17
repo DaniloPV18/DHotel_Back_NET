@@ -31,11 +31,11 @@ namespace DHotel_Back.Controllers
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> PutEntity([FromForm] HabitacionModificacionDTO entidad)
         {
-            //var result = await _habitacionService.Update(entidad);
-            //if (!result)
-            //{
-            //    return NotFound();
-            //}
+            var result = await _habitacionService.Update(entidad);
+            if (!result)
+            {
+                return NotFound();
+            }
             return Ok();
         }
     }
