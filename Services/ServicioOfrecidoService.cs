@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
-using DHotel_Back.DBContext;
-using DHotel_Back.DTOs;
+using DHotel_Back.DTOs.ServicioOfrecidoDTO;
 using DHotel_Back.Interfaces.IRepository;
-using DHotel_Back.Interfaces.IServices;
 using DHotel_Back.Models;
-using DHotelBack.Migrations;
 
 namespace DHotel_Back.Services
 {

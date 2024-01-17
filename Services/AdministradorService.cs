@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DHotel_Back.DTOs;
+using DHotel_Back.DTOs.AdministradorDTO;
 using DHotel_Back.Interfaces.IRepository;
 using DHotel_Back.Models;
 

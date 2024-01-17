@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using DHotel_Back.DBContext;
-using DHotel_Back.DTOs;
+using DHotel_Back.DTOs.HuespedDTO;
 using DHotel_Back.Interfaces.IRepository;
-using DHotel_Back.Interfaces.IServices;
 using DHotel_Back.Models;
 
 namespace DHotel_Back.Services

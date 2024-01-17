@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using DHotel_Back.DTOs;
+using DHotel_Back.DTOs.HabitacionDTO;
 using DHotel_Back.Interfaces.IRepository;
 using DHotel_Back.Interfaces.IServices;
 using DHotel_Back.Models;
@@ -20,9 +20,10 @@ namespace DHotel_Back.Services
             _mapper = mapper;
             _fileStorageService = fileStorageService;
         }
-        public async Task<IEnumerable<Habitacion>> GetAll()
+        public async Task<IEnumerable<HabitacionConsultaDTO>> GetAll()
         {
-            return await this._habitacionRepository.GetAllAsync();
+            var habitaciones = await this._habitacionRepository.ConsultarRelaciones();
+            return _mapper.Map<IEnumerable<HabitacionConsultaDTO>>(habitaciones);
         }
         public async Task Add(HabitacionCreacionDTO habitacionDto)
         {
