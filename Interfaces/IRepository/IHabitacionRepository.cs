@@ -6,5 +6,6 @@ namespace DHotel_Back.Interfaces.IRepository
     {
         new Task<Habitacion> GetByIdAsync(int id);
         new Task<IEnumerable<Habitacion>> GetAllAsync();
+        Task<IEnumerable<Habitacion>> BuscarHabitacionesActivas();
     }
 }

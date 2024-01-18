@@ -29,5 +29,14 @@ namespace DHotel_Back.Interfaces.Repository
                                 .ThenInclude(hso => hso.ServicioOfrecido)
                             .ToListAsync();
         }
+
+        public async Task<IEnumerable<Habitacion>> BuscarHabitacionesActivas()
+        {
+            return await _context.Habitaciones
+                .Where(h => h.EstadoId == 1)
+                .Include(h => h.HabitacionServicioOfrecido)
+                                .ThenInclude(hso => hso.ServicioOfrecido)
+                .ToListAsync();
+        }
     }
 }

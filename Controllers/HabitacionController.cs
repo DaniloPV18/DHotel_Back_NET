@@ -20,6 +20,12 @@ namespace DHotel_Back.Controllers
             var habitaciones = await _habitacionService.GetAll();
             return Ok(habitaciones);
         }
+        [HttpGet("activates")]
+        public async Task<ActionResult<IEnumerable<HabitacionConsultaDTO>>> GetAllActivates()
+        {
+            var habitaciones = await _habitacionService.GetAllActivates();
+            return Ok(habitaciones);
+        }
         [HttpPost]
         [Consumes("multipart/form-data")]
         public async Task<ActionResult> Post([FromForm] HabitacionCreacionDTO entidad)

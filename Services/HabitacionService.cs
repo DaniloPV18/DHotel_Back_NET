@@ -29,6 +29,11 @@ namespace DHotel_Back.Services
             var habitaciones = await this._habitacionRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<HabitacionConsultaDTO>>(habitaciones);
         }
+        public async Task<IEnumerable<HabitacionConsultaDTO>> GetAllActivates()
+        {
+            var habitaciones = await this._habitacionRepository.BuscarHabitacionesActivas();
+            return _mapper.Map<IEnumerable<HabitacionConsultaDTO>>(habitaciones);
+        }
         public async Task Add(HabitacionCreacionDTO entidad)
         {
             var habitacion = _mapper.Map<Habitacion>(entidad);
