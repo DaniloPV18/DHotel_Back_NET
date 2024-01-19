@@ -15,9 +15,10 @@ namespace DHotel_Back.Services
             _administradorRepository = administradorRepository;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<Administrador>> GetAll()
+        public async Task<IEnumerable<AdministradorConsultaDTO>> GetAll()
         {
-            return await this._administradorRepository.GetAllAsync();
+            var administradores = await this._administradorRepository.GetAllAsync();
+            return _mapper.Map<IEnumerable<AdministradorConsultaDTO>>(administradores);
         }
         public async Task Add(AdministradorCreacionDTO entidad)
         {

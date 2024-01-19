@@ -15,21 +15,24 @@ namespace DHotel_Back.Services
             _huespedRepository = huespedRepository;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<Huesped>> GetAll()
+        public async Task<IEnumerable<HuespedConsultaDTO>> GetAll()
         {
-            return await this._huespedRepository.GetAllAsync();
+            var huespedes = await this._huespedRepository.GetAllAsync();
+            return _mapper.Map<IEnumerable<HuespedConsultaDTO>>(huespedes);
         }
         public async Task<Huesped> GetById(int id)
         {
             return await this._huespedRepository.GetByIdAsync(id);
         }
-        public async Task<IEnumerable<Huesped>> BuscarHuespedesPorNombre(string nombre)
+        public async Task<IEnumerable<HuespedConsultaDTO>> BuscarHuespedesPorNombre(string nombre)
         {
-            return await this._huespedRepository.BuscarHuespedesPorNombre(nombre);
+            var huespedes = await this._huespedRepository.BuscarHuespedesPorNombre(nombre);
+            return _mapper.Map<IEnumerable<HuespedConsultaDTO>>(huespedes);
         }
-        public async Task<IEnumerable<Huesped>> BuscarHuespedesPorNombreApellido(string palabra)
+        public async Task<IEnumerable<HuespedConsultaDTO>> BuscarHuespedesPorNombreApellido(string palabra)
         {
-            return await this._huespedRepository.BuscarHuespedesPorNombreApellidos(palabra);
+            var huespedes = await this._huespedRepository.BuscarHuespedesPorNombreApellidos(palabra);
+            return _mapper.Map<IEnumerable<HuespedConsultaDTO>>(huespedes);
         }
         public async Task Add(HuespedCreacionDTO entidad)
         {

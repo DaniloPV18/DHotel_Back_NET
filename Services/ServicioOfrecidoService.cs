@@ -15,17 +15,20 @@ namespace DHotel_Back.Services
             _servicioOfrecidoRepository = huespedRepository;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<ServicioOfrecido>> GetAll()
+        public async Task<IEnumerable<ServicioOfrecidoConsultaDTO>> GetAll()
         {
-            return await this._servicioOfrecidoRepository.GetAllAsync();
+            var serviciosOfrecidos = await this._servicioOfrecidoRepository.GetAllAsync();
+            return _mapper.Map<IEnumerable<ServicioOfrecidoConsultaDTO>>(serviciosOfrecidos);
         }
-        public async Task<ServicioOfrecido> GetById(int id)
+        public async Task<ServicioOfrecidoConsultaDTO> GetById(int id)
         {
-            return await this._servicioOfrecidoRepository.GetByIdAsync(id);
+            var servicioOfrecido = await this._servicioOfrecidoRepository.GetByIdAsync(id);
+            return _mapper.Map<ServicioOfrecidoConsultaDTO>(servicioOfrecido);
         }
-        public async Task<IEnumerable<ServicioOfrecido>> BuscarServiciosActivos()
+        public async Task<IEnumerable<ServicioOfrecidoConsultaDTO>> BuscarServiciosActivos()
         {
-            return await this._servicioOfrecidoRepository.BuscarServiciosActivos();
+            var serviciosOfrecidos = await this._servicioOfrecidoRepository.BuscarServiciosActivos();
+            return _mapper.Map<IEnumerable<ServicioOfrecidoConsultaDTO>>(serviciosOfrecidos);
         }
         public async Task Add(ServicioOfrecidoCreacionDTO entidad)
         {
