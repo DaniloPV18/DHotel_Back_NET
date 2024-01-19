@@ -9,5 +9,6 @@
         public Administrador? Administrador { get; set; }
         public decimal? ValorPagado { get; set; }
         public DateTime? FechaRegistro { get; set; }
+        public int? EstadoId { get; set; }
     }
 }

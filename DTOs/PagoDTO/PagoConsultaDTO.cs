@@ -1,14 +1,14 @@
-﻿namespace DHotel_Back.Models
+﻿using DHotel_Back.DTOs.AbonoReservaDTO;
+using DHotel_Back.DTOs.HabitacionDTO;
+using DHotel_Back.DTOs.HuespedDTO;
+
+namespace DHotel_Back.DTOs.PagoDTO
 {
-    public class Pago
+    public class PagoConsultaDTO
     {
         public int Id { get; set; }
-        public int? HabitacionId { get; set; }
-        public Habitacion? Habitacion { get; set; } = null!;
-        public int? AdministradorId { get; set; }
-        public Administrador? Administrador { get; set; } = null!;
-        public int? HuespedId { get; set; }
-        public Huesped? Huesped { get; set; } = null!;
+        public HabitacionConsultaDTO? Habitacion { get; set; } = null!;
+        public HuespedConsultaDTO? Huesped { get; set; } = null!;
         public int? TipoPagoId { get; set; }
         public decimal? ValorPagado { get; set; }
         public decimal? ValorAPagar { get; set; }
@@ -18,6 +18,6 @@
         public DateTime? FechaInicio { get; set; }
         public DateTime? FechaFin { get; set; }
         public int? EstadoId { get; set; }
-        public List<AbonoReserva>? AbonosReservas { get; set; } = new List<AbonoReserva>();
+        public List<AbonoReservaConsultaDTO>? AbonosReservasDTO { get; set; } = new List<AbonoReservaConsultaDTO>();
     }
 }

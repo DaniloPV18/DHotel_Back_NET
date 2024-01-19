@@ -1,6 +1,6 @@
 ﻿using DHotel_Back.DTOs.AdministradorDTO;
 using DHotel_Back.DTOs.HabitacionServicioOfrecidoCreacionDTO;
-using DHotel_Back.Models;
+using DHotel_Back.DTOs.PagoDTO;
 
 namespace DHotel_Back.DTOs.HabitacionDTO
 {
@@ -15,7 +15,7 @@ namespace DHotel_Back.DTOs.HabitacionDTO
         public int? EstadoId { get; set; }
         public decimal? Precio { get; set; }
         public string? Foto { get; set; }
-        public List<Pago>? Pagos { get; set; } = new List<Pago>();
+        public List<PagoConsultaDTO>? Pagos { get; set; } = new List<PagoConsultaDTO>();
         public List<HabitacionServicioOfrecidoConsultaDTO>? HabitacionServicioOfrecido { get; set; } = new List<HabitacionServicioOfrecidoConsultaDTO>();
     }
 }

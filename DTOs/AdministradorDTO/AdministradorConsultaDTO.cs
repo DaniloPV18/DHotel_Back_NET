@@ -10,5 +10,10 @@ namespace DHotel_Back.DTOs.AdministradorDTO
         public string? Apellidos { get; set; } = null!;
         public string? Celular { get; set; } = null!;
         public string? Email { get; set; } = null!;
+        public int? GeneroId { get; set; }
+        public DateTime? FechaNacimiento { get; set; }
+        public int? RolId { get; set; }
+        public int? EstadoId { get; set; }
+        public DateTime? UltimaActividad { get; set; }
     }
 }

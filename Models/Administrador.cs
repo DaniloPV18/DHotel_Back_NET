@@ -21,7 +21,7 @@ namespace DHotel_Back.Models
         public DateTime? UltimaActividad { get; set; }
         public HashSet<Habitacion>? Habitaciones { get; set; } = new HashSet<Habitacion>();
         //public HashSet<Huesped> Huespedes { get; set; } = new HashSet<Huesped>();
-        public List<Pago>? Pagos { get; set; } = new List<Pago>();
+        //public List<Pago>? Pagos { get; set; } = new List<Pago>();
         public HashSet<ServicioOfrecido>? ServicioOfrecido { get; set; } = new HashSet<ServicioOfrecido>();
     }
 }
