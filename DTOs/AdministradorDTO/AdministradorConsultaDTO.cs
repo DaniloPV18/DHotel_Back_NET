@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace DHotel_Back.DTOs.AdministradorDTO
+﻿namespace DHotel_Back.DTOs.AdministradorDTO
 {
     public class AdministradorConsultaDTO
     {

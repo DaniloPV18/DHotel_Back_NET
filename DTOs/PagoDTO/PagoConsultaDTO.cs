@@ -1,14 +1,13 @@
 ﻿using DHotel_Back.DTOs.AbonoReservaDTO;
-using DHotel_Back.DTOs.HabitacionDTO;
-using DHotel_Back.DTOs.HuespedDTO;
 
 namespace DHotel_Back.DTOs.PagoDTO
 {
     public class PagoConsultaDTO
     {
         public int Id { get; set; }
-        public HabitacionConsultaDTO? Habitacion { get; set; } = null!;
-        public HuespedConsultaDTO? Huesped { get; set; } = null!;
+        public HabitacionDTO.HabitacionDTO? Habitacion { get; set; } = null!;
+        public AdministradorDTO.AdministradorDTO? Administrador { get; set; } = null!;
+        public HuespedDTO.HuespedDTO? Huesped { get; set; } = null!;
         public int? TipoPagoId { get; set; }
         public decimal? ValorPagado { get; set; }
         public decimal? ValorAPagar { get; set; }

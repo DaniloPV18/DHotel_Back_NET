@@ -8,6 +8,8 @@ namespace DHotel_Back.Utilidades
     {
         public AdministradorProfiles()
         {
+            CreateMap<Administrador, AdministradorDTO>();
+            
             CreateMap<Administrador, AdministradorConsultaDTO>();
             
             CreateMap<AdministradorCreacionDTO, Administrador>();

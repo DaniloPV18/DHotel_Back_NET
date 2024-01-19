@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DHotel_Back.DTOs.HabitacionServicioOfrecidoCreacionDTO;
+using DHotel_Back.DTOs.HabitacionServicioOfrecidoDTO;
 using DHotel_Back.Models;
 
 namespace DHotel_Back.Utilidades
@@ -8,6 +9,8 @@ namespace DHotel_Back.Utilidades
     {
         public HabitacionServicioOfrecidoProfiles()
         {
+            CreateMap<HabitacionServicioOfrecido, HabitacionServicioOfrecidoDTO>();
+
             CreateMap<HabitacionServicioOfrecido, HabitacionServicioOfrecidoConsultaDTO>();
 
             CreateMap<HabitacionServicioOfrecidoCreacionDTO, HabitacionServicioOfrecido>();

@@ -9,6 +9,8 @@ namespace DHotel_Back.Utilidades.Profiles
     {
         public ServiciosOfrecidosProfiles()
         {
+            CreateMap<ServicioOfrecido, ServicioOfrecidoDTO>();
+
             CreateMap<ServicioOfrecido, ServicioOfrecidoConsultaDTO>();
 
             CreateMap<ServicioOfrecidoCreacionDTO, ServicioOfrecido>();
