@@ -8,7 +8,7 @@ namespace DHotel_Back.Utilidades
     {
         public AdministradorProfiles()
         {
-            CreateMap<Administrador, AdministradorDTO>();
+            CreateMap<Administrador, AdministradorDTO>().ReverseMap();
             
             CreateMap<Administrador, AdministradorConsultaDTO>();
             

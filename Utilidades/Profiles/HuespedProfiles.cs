@@ -8,7 +8,7 @@ namespace DHotel_Back.Utilidades
     {
         public HuespedProfiles()
         {
-            CreateMap<Huesped, HuespedDTO>();
+            CreateMap<Huesped, HuespedDTO>().ReverseMap();
 
             CreateMap<Huesped, HuespedConsultaDTO>();
 

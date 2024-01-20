@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using DHotel_Back.DTOs.HabitacionServicioOfrecidoCreacionDTO;
 using DHotel_Back.DTOs.ServicioOfrecidoDTO;
 using DHotel_Back.Models;
 
@@ -9,7 +8,7 @@ namespace DHotel_Back.Utilidades.Profiles
     {
         public ServiciosOfrecidosProfiles()
         {
-            CreateMap<ServicioOfrecido, ServicioOfrecidoDTO>();
+            CreateMap<ServicioOfrecido, ServicioOfrecidoDTO>().ReverseMap();
 
             CreateMap<ServicioOfrecido, ServicioOfrecidoConsultaDTO>();
 

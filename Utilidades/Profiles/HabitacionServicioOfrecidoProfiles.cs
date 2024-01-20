@@ -9,7 +9,7 @@ namespace DHotel_Back.Utilidades
     {
         public HabitacionServicioOfrecidoProfiles()
         {
-            CreateMap<HabitacionServicioOfrecido, HabitacionServicioOfrecidoDTO>();
+            CreateMap<HabitacionServicioOfrecido, HabitacionServicioOfrecidoDTO>().ReverseMap();
 
             CreateMap<HabitacionServicioOfrecido, HabitacionServicioOfrecidoConsultaDTO>();
 

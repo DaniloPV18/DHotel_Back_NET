@@ -28,7 +28,7 @@ namespace DHotel_Back.Controllers
             await this._pagoService.Add(entidad);
             return Ok();
         }
-        [HttpPost("update")]
+        [HttpPut("update")]
         public async Task<ActionResult> PutEntity(PagoModificacionDTO entidad)
         {
             var result = await _pagoService.Update(entidad);

@@ -16,7 +16,10 @@ namespace DHotel_Back.Interfaces.Repository
         {
             return await _context.Pagos
                                  .Include(a => a.Administrador)
+                                 .Include(h => h.Huesped)
                                  .Include(h => h.Habitacion)
+                                    .ThenInclude(s => s.HabitacionServicioOfrecido)
+                                    .ThenInclude(hso => hso.ServicioOfrecido)
                                  .ToListAsync();
         }
     }
