@@ -38,10 +38,10 @@ namespace DHotel_Back.Controllers
             return huesped;
         }
         [HttpPost]
-        public async Task<ActionResult> Post(HuespedCreacionDTO entidad)
+        public async Task<ActionResult<HuespedDTO>> Post(HuespedCreacionDTO entidad)
         {
-            await _huespedService.Add(entidad);
-            return Ok();
+            var huesped = await _huespedService.Add(entidad);
+            return Ok(huesped);
         }
         [HttpPut("update")]
         public async Task<ActionResult> PutEntity(HuespedModificacionDTO entidad)

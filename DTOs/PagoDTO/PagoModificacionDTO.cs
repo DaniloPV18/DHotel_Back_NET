@@ -9,8 +9,9 @@ namespace DHotel_Back.DTOs.PagoDTO
             FechaModificacion = DateTime.Now;
         }
         public int Id { get; set; }
-        public HabitacionDTO.HabitacionDTO Habitacion { get; set; }
-        public HuespedDTO.HuespedDTO Huesped { get; set; }
+        public int? HabitacionId { get; set; }
+        public int? AdministradorId { get; set; }
+        public int? HuespedId { get; set; }
         public int? TipoPagoId { get; set; }
         public decimal? ValorPagado { get; set; }
         public decimal? ValorAPagar { get; set; }

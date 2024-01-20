@@ -9,6 +9,7 @@ namespace DHotel_Back.DTOs.PagoDTO
             FechaRegistro = DateTime.Now;
         }
         public int? HabitacionId { get; set; }
+        public int? AdministradorId { get; set; }
         public int? HuespedId { get; set; }
         public int? TipoPagoId { get; set; }
         public decimal? ValorPagado { get; set; }

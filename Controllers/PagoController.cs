@@ -19,14 +19,20 @@ namespace DHotel_Back.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PagoConsultaDTO>>> Get()
         {
-            var serviciosOfrecidos = await this._pagoService.GetAll();
-            return Ok(serviciosOfrecidos);
+            var pagos = await this._pagoService.GetAll();
+            return Ok(pagos);
         }
         [HttpPost]
         public async Task<ActionResult> Post(PagoCreacionDTO entidad)
         {
             await this._pagoService.Add(entidad);
             return Ok();
+        }
+        [HttpPost("available")]
+        public async Task<ActionResult> PostAvailable(PagoCreacionDTO entidad)
+        {
+            var pagos = await this._pagoService.GetAvailable(entidad);
+            return Ok(pagos);
         }
         [HttpPut("update")]
         public async Task<ActionResult> PutEntity(PagoModificacionDTO entidad)

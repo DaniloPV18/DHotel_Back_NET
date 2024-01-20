@@ -19,6 +19,12 @@ namespace DHotel_Back.Services
             var pagos = await this._pagoRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<PagoConsultaDTO>>(pagos);
         }
+        public async Task<IEnumerable<PagoConsultaDTO>> GetAvailable(PagoCreacionDTO entidad)
+        {
+            var pago = _mapper.Map<Pago>(entidad);
+            var pagos = await this._pagoRepository.GetAvailableAsync(pago);
+            return _mapper.Map<IEnumerable<PagoConsultaDTO>>(pagos);
+        }        
         public async Task Add(PagoCreacionDTO entidad)
         {
             var pago = _mapper.Map<Pago>(entidad);

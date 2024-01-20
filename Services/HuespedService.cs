@@ -34,10 +34,12 @@ namespace DHotel_Back.Services
             var huespedes = await this._huespedRepository.BuscarHuespedesPorNombreApellidos(palabra);
             return _mapper.Map<IEnumerable<HuespedConsultaDTO>>(huespedes);
         }
-        public async Task Add(HuespedCreacionDTO entidad)
+        public async Task<HuespedDTO> Add(HuespedCreacionDTO entidad)
         {
-            var administrador = _mapper.Map<Huesped>(entidad);
-            await _huespedRepository.AddAsync(administrador);
+            var huesped = _mapper.Map<Huesped>(entidad);
+            await _huespedRepository.AddAsync(huesped);
+            await _huespedRepository.SaveChangesAsync();
+            return _mapper.Map<HuespedDTO>(huesped);
         }
         public async Task<bool> Update(HuespedModificacionDTO entidad)
         {
