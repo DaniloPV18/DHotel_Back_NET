@@ -55,12 +55,12 @@ namespace DHotel_Back.Services
             {
                 return null;
             }
+            existingEntity.EstadoId = 3;
+            _abonoReservaRepository.Update(existingEntity);
             var sumatoria = await _abonoReservaRepository.GetSumReserva(entidad.PagoId);
             var pagoPadre = await _pagoRepository.GetByIdAsync(entidad.PagoId);
             var pendiente = pagoPadre.ValorAPagar - pagoPadre.ValorPagado;
-            pagoPadre.ValorPagado = sumatoria;
-            existingEntity.EstadoId = 3;
-            _abonoReservaRepository.Update(existingEntity);
+            pagoPadre.ValorPagado = sumatoria;            
             await _abonoReservaRepository.SaveChangesAsync();
             var verificarEstadoPago = await _abonoReservaRepository.VerificarSiTodasEstanAnuladas(entidad.PagoId);
             if (pendiente == 0)
