@@ -1,9 +1,11 @@
 ﻿using DHotel_Back.DTOs.HabitacionDTO;
 using DHotel_Back.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DHotel_Back.Controllers
 {
+    //[Authorize]
     [ApiController]
     [Route("api/v1/habitacion")]
     public class HabitacionController : ControllerBase

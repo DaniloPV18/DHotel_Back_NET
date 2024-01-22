@@ -1,10 +1,12 @@
 ﻿using DHotel_Back.DTOs.AbonoReservaDTO;
 using DHotel_Back.DTOs.PagoDTO;
 using DHotel_Back.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DHotel_Back.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/v1/reservas")]
     public class AbonoReservaController : ControllerBase

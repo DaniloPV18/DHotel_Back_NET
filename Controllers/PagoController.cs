@@ -3,10 +3,12 @@ using DHotel_Back.Interfaces.IRepository;
 using DHotel_Back.Interfaces.Repository;
 using DHotel_Back.Models;
 using DHotel_Back.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DHotel_Back.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/v1/pago")]
     public class PagoController : ControllerBase

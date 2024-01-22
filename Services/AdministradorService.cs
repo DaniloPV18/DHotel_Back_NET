@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DHotel_Back.DTOs.AdministradorDTO;
+using DHotel_Back.DTOs.UserLoginDTO;
 using DHotel_Back.Interfaces.IRepository;
 using DHotel_Back.Models;
 
@@ -23,6 +24,7 @@ namespace DHotel_Back.Services
         public async Task Add(AdministradorCreacionDTO entidad)
         {
             var administrador = _mapper.Map<Administrador>(entidad);
+            entidad.Pwd = BCrypt.Net.BCrypt.HashPassword(entidad.Cedula);
             await _administradorRepository.AddAsync(administrador);
         }
         public async Task<bool> Update(AdministradorModificacionDTO entidad)
