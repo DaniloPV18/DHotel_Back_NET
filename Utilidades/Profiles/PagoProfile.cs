@@ -8,6 +8,8 @@ namespace DHotel_Back.Utilidades.Profiles
     {
         public PagoProfile()
         {
+            CreateMap<Pago, PagoDTO>();
+
             CreateMap<Pago, PagoConsultaDTO>().ReverseMap();
 
             CreateMap<PagoCreacionDTO, Pago>();

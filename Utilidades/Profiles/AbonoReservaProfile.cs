@@ -9,6 +9,10 @@ namespace DHotel_Back.Utilidades.Profiles
         public AbonoReservaProfile()
         {
             CreateMap<AbonoReserva, AbonoReservaConsultaDTO>();
+
+            CreateMap<AbonoReservaCreacionDTO, AbonoReserva>();
+
+            CreateMap<AbonoReservaModificacionDTO, AbonoReserva>();
         }
     }
 }

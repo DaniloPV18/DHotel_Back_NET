@@ -7,6 +7,7 @@ namespace DHotel_Back.DTOs.PagoDTO
         public PagoCreacionDTO()
         {
             FechaRegistro = DateTime.Now;
+            EstadoId = 1;
         }
         public int? HabitacionId { get; set; }
         public int? AdministradorId { get; set; }
@@ -19,6 +20,7 @@ namespace DHotel_Back.DTOs.PagoDTO
         public DateTime? FechaRegistro { get; set; }
         public DateTime? FechaInicio { get; set; }
         public DateTime? FechaFin { get; set; }
+        [JsonIgnore]
         public int? EstadoId { get; set; }
     }
 }

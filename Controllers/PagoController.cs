@@ -23,10 +23,10 @@ namespace DHotel_Back.Controllers
             return Ok(pagos);
         }
         [HttpPost]
-        public async Task<ActionResult> Post(PagoCreacionDTO entidad)
+        public async Task<ActionResult<PagoDTO>> Post(PagoCreacionDTO entidad)
         {
-            await this._pagoService.Add(entidad);
-            return Ok();
+            var pagoAgregado = await this._pagoService.Add(entidad);
+            return Ok(pagoAgregado);
         }
         [HttpPost("available")]
         public async Task<ActionResult> PostAvailable(PagoCreacionDTO entidad)
@@ -44,5 +44,16 @@ namespace DHotel_Back.Controllers
             }
             return Ok();
         }
+        [HttpDelete("delete/{id}")]
+        public async Task<ActionResult> DeleteEntity(int id)
+        {
+            var result = await _pagoService.Delete(id);
+            if (!result)
+            {
+                return NotFound();
+            }
+            return Ok();
+        }
+
     }
 }

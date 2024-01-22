@@ -52,12 +52,14 @@ builder.Services.Configure<KestrelServerOptions>(options =>
 builder.Logging.AddConsole();
 
 // Servicios Entidades
+builder.Services.AddScoped<AbonoReservaService>();
 builder.Services.AddScoped<PagoService>();
 builder.Services.AddScoped<ServicioOfrecidoService>();
 builder.Services.AddScoped<HuespedService>();
 builder.Services.AddScoped<AdministradorService>();
 builder.Services.AddScoped<HabitacionService>();
 //Añadir Servicios - Interfaces
+builder.Services.AddScoped<IAbonoReservaRepository, AbonoReservaRepository>();
 builder.Services.AddScoped<IPagoRepository, PagoRepository>();
 builder.Services.AddScoped<IHabitacionServicioOfrecidoRepository, HabitacionServicioOfrecidoRepository>();
 builder.Services.AddScoped<IHabitacionRepository, HabitacionRepository>();
