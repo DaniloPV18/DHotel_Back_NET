@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DHotel_Back.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/v1/habitacion")]
     public class HabitacionController : ControllerBase

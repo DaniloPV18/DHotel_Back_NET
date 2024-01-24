@@ -47,7 +47,7 @@ namespace DHotel_Back.Interfaces.Services
         }),
                 Issuer = _configuration["Jwt:Issuer"],    // Añadir el emisor
                 Audience = _configuration["Jwt:Audience"], // Añadir la audiencia
-                Expires = DateTime.UtcNow.AddMinutes(7),
+                Expires = DateTime.UtcNow.AddHours(5),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
 

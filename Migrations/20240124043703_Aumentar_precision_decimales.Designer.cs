@@ -4,6 +4,7 @@ using DHotel_Back.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DHotelBack.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240124043703_Aumentar_precision_decimales")]
+    partial class Aumentarprecisiondecimales
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,8 +49,8 @@ namespace DHotelBack.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal?>("ValorPagado")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)");
+                        .HasPrecision(7, 4)
+                        .HasColumnType("decimal(7,4)");
 
                     b.HasKey("Id");
 
@@ -127,7 +130,7 @@ namespace DHotelBack.Migrations
                             Celular = "0962723152",
                             Email = "micaela@gmail.com",
                             EstadoId = 1,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7362),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9026),
                             GeneroId = 2,
                             Nombres = "Micaela",
                             Pwd = "0931600548",
@@ -141,7 +144,7 @@ namespace DHotelBack.Migrations
                             Celular = "0962723152",
                             Email = "sonia@gmail.com",
                             EstadoId = 1,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7372),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9036),
                             GeneroId = 2,
                             Nombres = "Sonia",
                             Pwd = "0931600549",
@@ -155,7 +158,7 @@ namespace DHotelBack.Migrations
                             Celular = "0962723152",
                             Email = "milo@gmail.com",
                             EstadoId = 1,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7374),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9038),
                             GeneroId = 1,
                             Nombres = "Milo",
                             Pwd = "0931600550",
@@ -208,21 +211,21 @@ namespace DHotelBack.Migrations
                         {
                             Id = 1,
                             EstadoId = 1,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7523),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9162),
                             Numero = 400
                         },
                         new
                         {
                             Id = 2,
                             EstadoId = 1,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7525),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9163),
                             Numero = 401
                         },
                         new
                         {
                             Id = 3,
                             EstadoId = 1,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7525),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9164),
                             Numero = 402
                         });
                 });
@@ -249,13 +252,13 @@ namespace DHotelBack.Migrations
                         {
                             HabitacionId = 1,
                             ServicioOfrecidoId = 1,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7541)
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9177)
                         },
                         new
                         {
                             HabitacionId = 1,
                             ServicioOfrecidoId = 2,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7542)
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9178)
                         });
                 });
 
@@ -313,7 +316,7 @@ namespace DHotelBack.Migrations
                             Cedula = "0931600897",
                             Celular = "0962723152",
                             Email = "Keila@gmail.com",
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7484),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9130),
                             GeneroId = 2,
                             Nombres = "Keila"
                         },
@@ -324,7 +327,7 @@ namespace DHotelBack.Migrations
                             Cedula = "0931600898",
                             Celular = "0962723152",
                             Email = "Alejandro@gmail.com",
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7486),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9131),
                             GeneroId = 1,
                             Nombres = "Alejandro"
                         },
@@ -335,7 +338,7 @@ namespace DHotelBack.Migrations
                             Cedula = "0931600899",
                             Celular = "0962723152",
                             Email = "Pepe@gmail.com",
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7487),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9132),
                             GeneroId = 1,
                             Nombres = "Pepe"
                         });
@@ -381,12 +384,12 @@ namespace DHotelBack.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal?>("ValorAPagar")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)");
+                        .HasPrecision(7, 4)
+                        .HasColumnType("decimal(7,4)");
 
                     b.Property<decimal?>("ValorPagado")
-                        .HasPrecision(10, 2)
-                        .HasColumnType("decimal(10,2)");
+                        .HasPrecision(7, 4)
+                        .HasColumnType("decimal(7,4)");
 
                     b.HasKey("Id");
 
@@ -439,7 +442,7 @@ namespace DHotelBack.Migrations
                             Id = 1,
                             Codigo = "NET",
                             EstadoId = 1,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7505),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9148),
                             Nombre = "Internet"
                         },
                         new
@@ -447,7 +450,7 @@ namespace DHotelBack.Migrations
                             Id = 2,
                             Codigo = "TV",
                             EstadoId = 1,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7507),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9149),
                             Nombre = "Television Cable"
                         },
                         new
@@ -455,7 +458,7 @@ namespace DHotelBack.Migrations
                             Id = 3,
                             Codigo = "AIR",
                             EstadoId = 1,
-                            FechaRegistro = new DateTime(2024, 1, 23, 23, 40, 34, 671, DateTimeKind.Local).AddTicks(7508),
+                            FechaRegistro = new DateTime(2024, 1, 23, 23, 37, 3, 184, DateTimeKind.Local).AddTicks(9150),
                             Nombre = "Aire Acondicionado"
                         });
                 });

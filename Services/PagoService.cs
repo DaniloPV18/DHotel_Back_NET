@@ -29,7 +29,6 @@ namespace DHotel_Back.Services
         {
             var pago = _mapper.Map<Pago>(entidad);
             await _pagoRepository.AddAsync(pago);
-            await _pagoRepository.SaveChangesAsync();
             var pagoRegistrado = _mapper.Map<PagoDTO>(pago);
             return pagoRegistrado;
         }

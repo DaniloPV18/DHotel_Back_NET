@@ -23,8 +23,8 @@ namespace DHotel_Back.Services
         }
         public async Task Add(AdministradorCreacionDTO entidad)
         {
-            var administrador = _mapper.Map<Administrador>(entidad);
             entidad.Pwd = BCrypt.Net.BCrypt.HashPassword(entidad.Cedula);
+            var administrador = _mapper.Map<Administrador>(entidad);
             await _administradorRepository.AddAsync(administrador);
         }
         public async Task<bool> Update(AdministradorModificacionDTO entidad)

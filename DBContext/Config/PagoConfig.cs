@@ -8,8 +8,8 @@ namespace DHotel_Back.DBContext.Config
     {
         public void Configure(EntityTypeBuilder<Pago> builder)
         {
-            builder.Property(a => a.ValorAPagar).HasPrecision(5, 2);
-            builder.Property(a => a.ValorPagado).HasPrecision(5, 2);
+            builder.Property(a => a.ValorAPagar).HasPrecision(10, 2);
+            builder.Property(a => a.ValorPagado).HasPrecision(10, 2);
             builder.Property(a => a.FechaInicio).HasColumnType("date");
             builder.Property(a => a.FechaFin).HasColumnType("date");
 

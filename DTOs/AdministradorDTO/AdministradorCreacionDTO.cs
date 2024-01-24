@@ -15,6 +15,7 @@ namespace DHotel_Back.DTOs.AdministradorDTO
         public string? Celular { get; set; } = null!;
         public string? Email { get; set; } = null!;
         public int? GeneroId { get; set; }
+        [JsonIgnore]
         public string? Pwd { get; set; } = null!;
         public DateTime? FechaNacimiento { get; set; }
         public int? RolId { get; set; }

@@ -8,7 +8,7 @@ namespace DHotel_Back.DBContext.Config
     {
         public void Configure(EntityTypeBuilder<AbonoReserva> builder)
         {
-            builder.Property(a => a.ValorPagado).HasPrecision(5, 2);
+            builder.Property(a => a.ValorPagado).HasPrecision(10, 2);
         }
     }
 }
